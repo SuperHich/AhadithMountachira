@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_share_with_bar"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/socialbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="50sp"
+        android:layout_gravity="center"
+        android:background="@drawable/share"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/whatappbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sharetext" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/smsbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sms" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/mailbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mail_in_about_app" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/twiterbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/twit" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/fbookbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/face" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</LinearLayout>

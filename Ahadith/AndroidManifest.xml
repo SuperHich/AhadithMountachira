@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.freelance.android.ahadith"
+    android:launchMode="standard"
+    android:versionCode="3"
+    android:versionName="1.1" android:sharedUserId="">
+
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <supports-screens android:xlargeScreens="true" />
+
+    <application
+
+        android:largeHeap="true"
+        android:allowBackup="true"
+        android:icon="@drawable/logo1"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait"
+        android:theme="@style/SplashTheme" >
+
+        <service
+            android:name="com.freelance.android.ahadith.LoadinfDataService"
+            class="com.freelance.android.ahadith.LoadinfDataService" >
+            <intent-filter>
+                <action
+                    android:name="com.freelance.android.ahadith.LoadinfDataService"
+                    android:value="com.freelance.android.ahadith.LoadinfDataService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".downloadData"
+            android:enabled="false" />
+
+        <activity
+            android:name="com.freelance.android.ahadith.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.MailusActivity"
+            android:label="@string/title_activity_mailus"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.AboutActivity1"
+            android:label="@string/title_activity_mailus"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.AddHadithActivity"
+            android:label="@string/title_activity_add_hadith"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.AhadithList"
+            android:label="@string/title_activity_ahadith_list"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.freelance.android.ahadith.ShareActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <intent-filter>
+   <action android:name="android.intent.action.SEND" />
+   <category android:name="android.intent.category.DEFAULT" />
+   <data android:mimeType="Text/Rich" />
+</intent-filter>
+    </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+</manifest>

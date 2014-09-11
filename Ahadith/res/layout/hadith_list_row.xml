@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/hadith_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:gravity="right"
+        android:maxLines="5"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:singleLine="false"
+        android:layout_margin="6sp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textSize="15sp" />
+
+    <RelativeLayout
+        android:id="@+id/hhhhh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp" >
+
+        <Button
+            android:id="@+id/readmorebtn"
+            android:layout_width="50sp"
+            android:layout_height="40sp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/down" />
+
+        <TextView
+            android:id="@+id/hadith_deg_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:paddingTop="6sp"
+            android:text="الدرجة : "
+            android:textColor="#105275"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/hadith_deg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/hadith_deg_title"
+            android:layout_toRightOf="@+id/readmorebtn"
+            android:gravity="right"
+            android:textColor="#723E05"
+            android:paddingRight="4sp"
+               android:paddingTop="6sp"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/socialbar2"
+        android:layout_width="264dp"
+        android:layout_height="50sp"
+        android:layout_gravity="right"
+        android:layout_marginRight="5sp"
+        android:background="@drawable/social_pg_in_about_app"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/whatappbtn"
+            android:layout_width="44dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/sharetext" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/copybtn"
+            android:layout_width="44dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/print" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/smsbtn"
+            android:layout_width="44dp"
+            android:layout_height="39sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/mail_in_about_app" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/twiterbtn"
+            android:layout_width="44dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/twit" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/fbookbtn"
+            android:layout_width="44dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="23sp"
+            android:background="@drawable/face" />
+
+        
+    </LinearLayout>
+
+</LinearLayout>

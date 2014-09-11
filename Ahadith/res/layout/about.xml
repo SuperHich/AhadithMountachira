@@ -1,0 +1,329 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroun"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_weight=".4"
+        android:background="@drawable/header" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3" >
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/minbtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/zoom_in" />
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/plusbtn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/zoom_out" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2.5"
+            android:src="@drawable/about_app" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <net.shikii.widgets.SAutoBgButton
+            android:id="@+id/homebtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1.5"
+            android:background="@drawable/home" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_weight="10"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="9" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/iv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="عن الدرر السنيه : "
+                    android:textColor="#0B3851"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/iv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="مؤسسه علميه , دعويه , إعلاميه , غير ربحيه , لها : "
+                    android:textColor="#595959" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/iv3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text=" الحفاظ على السنه وميراث النبوه."
+                        android:textColor="#595959" />
+
+                    <TextView
+                        android:id="@+id/iv4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="غايه عظيمه : "
+                        android:textColor="#D60000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/iv5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="نسعى ﻷن نؤسس: منهجا مؤصلاَ ونقلاَ"
+                        android:textColor="#595959" />
+
+                    <TextView
+                        android:id="@+id/iv6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="ورؤيه مستقبليه : "
+                        android:textColor="#D60000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/iv7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="موثقاَ وعلماَ شاملاَ , بمحتوى عربى , وانتشار عالمى."
+                    android:textColor="#595959" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/iv8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="الرياده والتميز فى إيجاد مرجعيه "
+                        android:textColor="#595959" />
+
+                    <TextView
+                        android:id="@+id/iv9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:text="ورسالة واضحة : "
+                        android:textColor="#D60000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/iv10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="علميه على منهج أهل السنة والجماعة لكافة المسلمين فى أنحاء العالم"
+                    android:textColor="#595959" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/iv11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="بناء أوثق وأكبر قواعد بيانات الكترونيه "
+                        android:textColor="#595959" />
+
+                    <TextView
+                        android:id="@+id/iv12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:text="وهدف محدد : "
+                        android:textColor="#D60000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/iv13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="للموسوعات العلمية وتيسير الوصول إليها من خلال التقنيات الحديثه ."
+                    android:textColor="#595959" />
+
+                <TextView
+                    android:id="@+id/iv14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="عن التطبيق : "
+                    android:textColor="#0B3851"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/iv15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="مجموعة من الأحاديث التى لا تصح والمنتشرة بين أوساط الناس فى الشبكة العالمية (الإنترنت) وغيرها من وسائل التواصل ."
+                    android:textColor="#595959" />
+
+                <TextView
+                    android:id="@+id/iv16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:text="تحدث باستمرار."
+                    android:textColor="#595959" />
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/socialbar"
+            android:layout_width="244dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@drawable/social_pg_in_about_app"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5" />
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/desktop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/desktop_in_about_app" />
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/mailbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/mail_in_about_app" />
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/twitbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/twiter_in_about_app" />
+
+            <net.shikii.widgets.SAutoBgButton
+                android:id="@+id/fbbtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="7dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/face_about_app" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".5" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+                android:layout_height="50dip"
+        android:layout_gravity="bottom"
+        android:layout_weight=".4"
+        android:background="@drawable/footer" >
+
+        <ImageView
+            android:id="@+id/adimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,164 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_default4"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.64"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/centerlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/centerlayoutt"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/centerlayouttt"
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/raslnabtn"
+                        android:layout_width="65dp"
+                        android:layout_height="70dp"                                     
+                        android:layout_marginLeft="5sp"
+                        android:background="@android:color/transparent" />
+
+                    <Button
+                        android:id="@+id/browsebtn"
+                        android:layout_width="65dp"
+                        android:layout_height="70dp"
+                        android:layout_alignBaseline="@+id/aboutbtn"
+                        android:layout_below="@+id/aboutbtn"
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/aboutbtn"
+                        android:background="@android:color/transparent" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60sp" />
+
+            <LinearLayout
+                android:layout_width="129dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="60dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/aboutbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="1" >
+
+                <Button
+                    android:id="@+id/addbtn"
+                    android:layout_width="65dp"
+                    android:layout_height="105dp"
+                    android:layout_weight="0.11"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="97dp"
+                android:weightSum="1" >
+
+                <Button
+                    android:id="@+id/searchbtn"
+                    android:layout_width="0dp"
+                    android:layout_height="109dp"
+                    android:layout_weight="0.48"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20sp" >
+
+                <Button
+                    android:id="@+id/sharebtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="70dp"
+                    android:background="@android:color/transparent" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_weight="2"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/homesearchbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent" />
+
+        <EditText
+            android:id="@+id/home_search_txt"
+            android:layout_width="0dp"
+            android:layout_height="31dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="135dp"
+            android:layout_weight="11.81"
+            android:background="@android:color/transparent"
+            android:gravity="right"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>
