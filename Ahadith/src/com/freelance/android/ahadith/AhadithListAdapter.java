@@ -1,32 +1,29 @@
 
 package com.freelance.android.ahadith;
 
-import android.R.id;
-import android.R.integer;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.LabeledIntent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
-import android.opengl.Visibility;
+import android.net.Uri;
 import android.os.Build;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-
-import com.freelance.android.ahadith.CopyOfAhadithListAdapter.viewHolder;
 
 @SuppressLint("NewApi")
 public class AhadithListAdapter extends BaseAdapter {
@@ -417,21 +414,30 @@ holder.smsbtn.setOnClickListener(new View.OnClickListener() {
 		// intent.putExtra("compose_mode", true);
 		// con.startActivity(intent);
 
-		Intent email = new Intent(Intent.ACTION_SEND);
-		email.putExtra(Intent.EXTRA_EMAIL,
-				new String[] { "" });
-		email.putExtra(Intent.EXTRA_SUBJECT, "الدرر السنية - من تطبيق احاديث منتشره لا تصح");
-		email.putExtra(
-				Intent.EXTRA_TEXT,
-				ahdithListModel.get(pos).getHadith()
-						+ "\n"
-						+ "الدرجة : "
-						+ degree
-						+ "\n"
-						+ "( لتحميل التطبيق : http://dorar.net/article/1692   )");
-		email.setType("message/rfc822");
-		con.startActivity(Intent.createChooser(email,
-				"Choose an Email client :"));
+//		Intent email = new Intent(Intent.ACTION_SEND);
+//		email.putExtra(Intent.EXTRA_EMAIL,
+//				new String[] { "" });
+//		email.putExtra(Intent.EXTRA_SUBJECT, "الدرر السنية - من تطبيق احاديث منتشره لا تصح");
+//		email.putExtra(
+//				Intent.EXTRA_TEXT,
+//				ahdithListModel.get(pos).getHadith()
+//						+ "\n"
+//						+ "الدرجة : "
+//						+ degree
+//						+ "\n"
+//						+ "( لتحميل التطبيق : http://dorar.net/article/1692   )");
+//		email.setType("message/rfc822");
+//		con.startActivity(Intent.createChooser(email,
+//				"Choose an Email client :"));
+		
+		String title = "الدرر السنية - من تطبيق احاديث منتشره لا تصح"; 
+		String content = ahdithListModel.get(pos).getHadith()
+				+ "\n"
+				+ "الدرجة : "
+				+ degree
+				+ "\n"
+				+ "( لتحميل التطبيق : http://dorar.net/article/1692   )";
+		share(title, content);
 
 	}
 });
@@ -443,7 +449,7 @@ holder.whatappbtn.setOnClickListener(new View.OnClickListener() {
 
 		Intent waIntent = new Intent(Intent.ACTION_SEND);
 		waIntent.setType("text/plain");
-		waIntent.setPackage("com.whatsapp");
+//		waIntent.setPackage("com.whatsapp");
 		
 		int textCount = s.length();
 		
@@ -471,28 +477,12 @@ holder.whatappbtn.setOnClickListener(new View.OnClickListener() {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		int mom = 0;
 		if(s.length()>6000){
 			mom=6000;
 		}
 		
-		
-		
-		
+				
 		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :\n" 
 		+title 
 		
@@ -596,5 +586,43 @@ if (s.replaceAll("\\s", "").length() < 220) {
 		// TODO Auto-generated method stub
 		return position;
 	}
+	
+	private void share(String title, String content){
+		// Intents with SEND action
+		PackageManager packageManager = con.getPackageManager();
+		Intent sendIntent = new Intent(Intent.ACTION_SEND);
+		sendIntent.setType("text/plain");
+		List<ResolveInfo> resolveInfoList = packageManager.queryIntentActivities(sendIntent, 0);
 
+		List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
+
+		for (int j = 0; j < resolveInfoList.size(); j++) {
+		    ResolveInfo resolveInfo = resolveInfoList.get(j);
+		    String packageName = resolveInfo.activityInfo.packageName;
+		    Intent intent = new Intent();
+		    intent.setAction(Intent.ACTION_SEND);
+		    intent.setComponent(new ComponentName(packageName, resolveInfo.activityInfo.name));
+		    intent.setType("text/plain");
+
+		    if (packageName.contains("twitter")) {
+		        intent.putExtra(Intent.EXTRA_TEXT, "com.twitter.android" + "https://play.google.com/store/apps/details?id=" + con.getPackageName());
+		    } else {
+		        // skip android mail and gmail to avoid adding to the list twice
+		        if (packageName.contains("android.email") || packageName.contains("android.gm")) {
+		            continue;
+		        }
+		        intent.putExtra(Intent.EXTRA_TEXT, "com.facebook.katana" + "https://play.google.com/store/apps/details?id=" + con.getPackageName());
+		    }
+
+		    if ((packageName.contains("android.email") || packageName.contains("android.gm"))){
+		    	intentList.add(new LabeledIntent(intent, packageName, resolveInfo.loadLabel(packageManager), resolveInfo.icon));
+		    }
+		}
+
+		Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, title);
+		emailIntent.putExtra(Intent.EXTRA_TEXT, content);
+
+		con.startActivity(Intent.createChooser(emailIntent, "Choose an Email client :").putExtra(Intent.EXTRA_INITIAL_INTENTS, intentList.toArray(new LabeledIntent[intentList.size()])));
+	}
 }
