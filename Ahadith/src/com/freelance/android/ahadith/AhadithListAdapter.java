@@ -2,18 +2,12 @@
 package com.freelance.android.ahadith;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.LabeledIntent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -437,7 +431,7 @@ holder.smsbtn.setOnClickListener(new View.OnClickListener() {
 				+ degree
 				+ "\n"
 				+ "( لتحميل التطبيق : http://dorar.net/article/1692   )";
-		share(title, content);
+		Utils.shareWithMail(con, "", title, content, "Choose an Email client :");
 
 	}
 });
@@ -587,42 +581,4 @@ if (s.replaceAll("\\s", "").length() < 220) {
 		return position;
 	}
 	
-	private void share(String title, String content){
-		// Intents with SEND action
-		PackageManager packageManager = con.getPackageManager();
-		Intent sendIntent = new Intent(Intent.ACTION_SEND);
-		sendIntent.setType("text/plain");
-		List<ResolveInfo> resolveInfoList = packageManager.queryIntentActivities(sendIntent, 0);
-
-		List<LabeledIntent> intentList = new ArrayList<LabeledIntent>();
-
-		for (int j = 0; j < resolveInfoList.size(); j++) {
-		    ResolveInfo resolveInfo = resolveInfoList.get(j);
-		    String packageName = resolveInfo.activityInfo.packageName;
-		    Intent intent = new Intent();
-		    intent.setAction(Intent.ACTION_SEND);
-		    intent.setComponent(new ComponentName(packageName, resolveInfo.activityInfo.name));
-		    intent.setType("text/plain");
-
-		    if (packageName.contains("twitter")) {
-		        intent.putExtra(Intent.EXTRA_TEXT, "com.twitter.android" + "https://play.google.com/store/apps/details?id=" + con.getPackageName());
-		    } else {
-		        // skip android mail and gmail to avoid adding to the list twice
-		        if (packageName.contains("android.email") || packageName.contains("android.gm")) {
-		            continue;
-		        }
-		        intent.putExtra(Intent.EXTRA_TEXT, "com.facebook.katana" + "https://play.google.com/store/apps/details?id=" + con.getPackageName());
-		    }
-
-		    if ((packageName.contains("android.email") || packageName.contains("android.gm"))){
-		    	intentList.add(new LabeledIntent(intent, packageName, resolveInfo.loadLabel(packageManager), resolveInfo.icon));
-		    }
-		}
-
-		Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:"));
-		emailIntent.putExtra(Intent.EXTRA_SUBJECT, title);
-		emailIntent.putExtra(Intent.EXTRA_TEXT, content);
-
-		con.startActivity(Intent.createChooser(emailIntent, "Choose an Email client :").putExtra(Intent.EXTRA_INITIAL_INTENTS, intentList.toArray(new LabeledIntent[intentList.size()])));
-	}
 }

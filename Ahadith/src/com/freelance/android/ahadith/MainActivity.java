@@ -1,6 +1,11 @@
 package com.freelance.android.ahadith;
 
-import android.R.integer;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -25,13 +30,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
-
-import java.io.IOException;
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 @SuppressLint({ "NewApi", "CutPasteId" })
@@ -93,7 +91,7 @@ public class MainActivity extends Activity {
      
     try{
     	if (isNetworkAvailable()){
-     		String URL = "http://dorar.net/spreadH/api";
+     		String URL = "http://dorar.net/spreadH/api/u&";
     			
     			if(!a){
      			importData = new doImport(MainActivity.this);
@@ -168,15 +166,17 @@ public class MainActivity extends Activity {
                 // raslnaIntent.putExtra("no", no);
                 // startActivity(raslnaIntent);
 
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL,
-                        new String[]{"apps@dorar.net"});
-                email.putExtra(Intent.EXTRA_SUBJECT,
-                        "رسالة بخصوص تطبيق احاديث منتشرة");
-                email.putExtra(Intent.EXTRA_TEXT, " ");
-                email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email,
-                        "Choose an Email client :"));
+//                Intent email = new Intent(Intent.ACTION_SEND);
+//                email.putExtra(Intent.EXTRA_EMAIL,
+//                        new String[]{"apps@dorar.net"});
+//                email.putExtra(Intent.EXTRA_SUBJECT,
+//                        "رسالة بخصوص تطبيق احاديث منتشرة");
+//                email.putExtra(Intent.EXTRA_TEXT, " ");
+//                email.setType("message/rfc822");
+//                startActivity(Intent.createChooser(email,
+//                        "Choose an Email client :"));
+                
+            	Utils.shareWithMail(MainActivity.this, "apps@dorar.net", "رسالة بخصوص تطبيق احاديث منتشرة", " ", "Choose an Email client :");
 
             }
         });
@@ -272,15 +272,20 @@ public class MainActivity extends Activity {
                 //
                 // addintent.putExtra("no", no);
                 // startActivity(addintent);
+                
                 isAddHadith = true;
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL,
-                        new String[]{"montashera@dorar.net"});
-                email.putExtra(Intent.EXTRA_SUBJECT, "أضف حديثا منتشرا ");
-                email.putExtra(Intent.EXTRA_TEXT, " ");
-                email.setType("message/rfc822");
-                startActivity(Intent.createChooser(email,
-                        "Choose an Email client :"));
+//                Intent email = new Intent(Intent.ACTION_SEND);
+//                email.putExtra(Intent.EXTRA_EMAIL,
+//                        new String[]{"montashera@dorar.net"});
+//                email.putExtra(Intent.EXTRA_SUBJECT, "أضف حديثا منتشرا ");
+//                email.putExtra(Intent.EXTRA_TEXT, " ");
+//                email.setType("message/rfc822");
+//                startActivity(Intent.createChooser(email,
+//                        "Choose an Email client :"));
+                
+                
+                Utils.shareWithMail(MainActivity.this, "montashera@dorar.net", "أضف حديثا منتشرا ", " ", "Choose an Email client :");
+                
 //				mainLayout.setBackground(getApplicationContext().getResources()
 //						.getDrawable(R.drawable.home_default4));
             }
@@ -452,24 +457,66 @@ public class MainActivity extends Activity {
                return ;
 
            } else {
-           	pd = ProgressDialog.show(this,"","جاري البحث ...",true);
-   			String searchValue = homeSearchText.getText().toString();
-   			searchValue.replaceAll("'"," ");
-            searchValue.replaceAll(".", " ");
-            String b1 = "\\(";
-            String b2 = "\\)";
-            searchValue.replaceAll(",", " ");	
-            searchValue.replaceAll("،", " ");
-            searchValue.replaceAll(b1, " ");
-            searchValue.replaceAll(b2, " ");
-            String[] ar = searchValue.split(" ");
+//           	pd = ProgressDialog.show(this,"","جاري البحث ...",true);
+//   			String searchValue = homeSearchText.getText().toString();
+//   			searchValue.replaceAll("'"," ");
+//            searchValue.replaceAll(".", " ");
+//            String b1 = "\\(";
+//            String b2 = "\\)";
+//            searchValue.replaceAll(",", " ");	
+//            searchValue.replaceAll("،", " ");
+//            searchValue.replaceAll(b1, " ");
+//            searchValue.replaceAll(b2, " ");
+//            String[] ar = searchValue.split(" ");
+//   			try{
+//   				String sss="REPLACE(REPLACE(REPLACE(REPLACE(MHadith,'،',' '),'.',' '),'" + b1 + "',' '),'\\)',' ')";
+//                   db1 = openOrCreateDatabase(DBNAME,
+//                           Context.MODE_PRIVATE, null);
+//                   Cursor cursor = db1.rawQuery("SELECT * FROM  " + TABLE
+//                           + " WHERE REPLACE("+ sss +","+ "'و'" +",' ') like '% "
+//                           + searchValue + " %'", null);
+//
+//                   
+//                   if(cursor.getCount()!=0 && cursor!=null){
+//                   	cursor.moveToFirst();
+//                   	do{
+//                   		
+//                   		int hadid = cursor.getInt(cursor.getColumnIndex("HadithID"));
+//                   		hadids.add(hadid);	
+//                   		
+//                   	}while(cursor.moveToNext());
+//                   	
+//                   	
+//                   	
+//                   	//Toast.makeText(getApplicationContext(), String.valueOf(cursor.getCount()), Toast.LENGTH_LONG).show();
+//                   	
+//                   }
+//                   else{
+//                   
+//                  // Toast.makeText(getApplicationContext(), "لا يوجد للبحث نتائج", Toast.LENGTH_LONG).show();
+//                   }
+//                  // Toast.makeText(getApplicationContext(), String.valueOf(cursor.getCount()), Toast.LENGTH_LONG).show();
+//
+//   			}
+//   			catch(Exception ex){
+//   				//Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
+//   				pd.cancel();
+//   				
+//   			}
+//   			finally{
+//   				 pd.cancel();
+//   				db1.close();
+//   			}
+        	   
+        	   pd = ProgressDialog.show(this,"","جاري البحث ...",true);
+   			String searchValue =homeSearchText.getText().toString();
+   			
    			try{
-   				String sss="REPLACE(REPLACE(REPLACE(REPLACE(MHadith,'،',' '),'.',' '),'" + b1 + "',' '),'\\)',' ')";
                    db1 = openOrCreateDatabase(DBNAME,
                            Context.MODE_PRIVATE, null);
                    Cursor cursor = db1.rawQuery("SELECT * FROM  " + TABLE
-                           + " WHERE REPLACE("+ sss +","+ "'و'" +",' ') like '% "
-                           + searchValue + " %'", null);
+                           + " WHERE MHadith like '%"
+                           + searchValue + "%'", null);
 
                    
                    if(cursor.getCount()!=0 && cursor!=null){
@@ -487,15 +534,14 @@ public class MainActivity extends Activity {
                    	
                    }
                    else{
-                   
-                  // Toast.makeText(getApplicationContext(), "لا يوجد للبحث نتائج", Toast.LENGTH_LONG).show();
+//                   	Toast.makeText(getApplicationContext(), "لا يوجد للبحث نتائج", Toast.LENGTH_LONG).show();
                    }
-                  // Toast.makeText(getApplicationContext(), String.valueOf(cursor.getCount()), Toast.LENGTH_LONG).show();
+                   
 
    			}
    			catch(Exception ex){
-   				//Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
-   				pd.cancel();
+   				//Toast.makeText(getApplicationContext(), "لا يوجد للبحث نتائج", Toast.LENGTH_LONG).show();
+   				//pd.cancel();
    				
    			}
    			finally{
@@ -507,11 +553,7 @@ public class MainActivity extends Activity {
 
                }
 
-
-
-
-               
-
+    	   
                if (!hadids.isEmpty()) {
             	   pd.cancel();
 
@@ -597,6 +639,7 @@ public class MainActivity extends Activity {
     			
     	return false;
     }
+    
 }
 
 

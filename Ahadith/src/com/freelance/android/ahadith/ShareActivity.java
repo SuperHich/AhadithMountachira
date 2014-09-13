@@ -1,5 +1,7 @@
 package com.freelance.android.ahadith;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,8 +12,6 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.bugsense.trace.BugSenseHandler;
-
-import java.util.ArrayList;
 
 public class ShareActivity extends Activity {
 
@@ -84,15 +84,17 @@ public class ShareActivity extends Activity {
 //				Intent twIntent = new Intent(Intent.ACTION_VIEW, Uri
 //						.parse("https://www.twitter.com/"));
 //				startActivity(twIntent);
-				Intent email = new Intent(Intent.ACTION_SEND);
-
-				email.putExtra(Intent.EXTRA_SUBJECT, "بادر بتحميل تطبيق أحاديث منتشرة لا تصح");
-				email.putExtra(
-						Intent.EXTRA_TEXT,"بادر بتحميل تطبيق أحاديث منتشرة لا تصح – http://dorar.net/article/1692"
-						);
-				email.setType("message/rfc822");
-				startActivity(Intent.createChooser(email,
-						"Choose an Email client :"));
+//				Intent email = new Intent(Intent.ACTION_SEND);
+//
+//				email.putExtra(Intent.EXTRA_SUBJECT, "بادر بتحميل تطبيق أحاديث منتشرة لا تصح");
+//				email.putExtra(
+//						Intent.EXTRA_TEXT,"بادر بتحميل تطبيق أحاديث منتشرة لا تصح – http://dorar.net/article/1692"
+//						);
+//				email.setType("message/rfc822");
+//				startActivity(Intent.createChooser(email,
+//						"Choose an Email client :"));
+				
+				Utils.shareWithMail(ShareActivity.this, "", "بادر بتحميل تطبيق أحاديث منتشرة لا تصح", "بادر بتحميل تطبيق أحاديث منتشرة لا تصح – http://dorar.net/article/1692", "Choose an Email client :");
 				finish();
 
 			}
@@ -122,7 +124,7 @@ public class ShareActivity extends Activity {
 				String outCipherText = "الدرر السنية  –\n بادر بتحميل تطبيق أحاديث منتشرة لا تصح – http://dorar.net/article/1692 ";
 				Intent waIntent = new Intent(Intent.ACTION_SEND);
 				waIntent.setType("text/plain");
-				waIntent.setPackage("com.whatsapp");
+//				waIntent.setPackage("com.whatsapp");
 				waIntent.putExtra(android.content.Intent.EXTRA_TEXT, outCipherText);
 				startActivity(Intent.createChooser(waIntent,
 						"Share with what's app"));
@@ -161,4 +163,5 @@ public class ShareActivity extends Activity {
 
 		return super.onKeyDown(keyCode, event);
 	}
+	
 }

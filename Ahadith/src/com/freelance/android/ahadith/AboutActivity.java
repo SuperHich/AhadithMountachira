@@ -485,6 +485,23 @@ public class AboutActivity extends Activity {
 
 package com.freelance.android.ahadith;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -506,23 +523,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bugsense.trace.BugSenseHandler;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 
 @SuppressLint("ShowToast")
 public class AboutActivity extends Activity {
@@ -668,17 +668,18 @@ public class AboutActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("message/rfc822");
-                i.putExtra(Intent.EXTRA_EMAIL,"apps@dorar.net");
-                i.putExtra(Intent.EXTRA_SUBJECT, "رسالة بخصوص تطبيق احاديث منتشره");
-                i.putExtra(Intent.EXTRA_TEXT, "body of email");
-                try {
-                    startActivity(Intent.createChooser(i, "Send mail..."));
-                } catch (android.content.ActivityNotFoundException ex) {
+//                Intent i = new Intent(Intent.ACTION_SEND);
+//                i.setType("message/rfc822");
+//                i.putExtra(Intent.EXTRA_EMAIL,"apps@dorar.net");
+//                i.putExtra(Intent.EXTRA_SUBJECT, "رسالة بخصوص تطبيق احاديث منتشره");
+//                i.putExtra(Intent.EXTRA_TEXT, "body of email");
+//                try {
+//                    startActivity(Intent.createChooser(i, "Send mail..."));
+//                } catch (android.content.ActivityNotFoundException ex) {
+//
+//                }
 
-                }
-
+            	Utils.shareWithMail(AboutActivity.this, "apps@dorar.net", "رسالة بخصوص تطبيق احاديث منتشره", "body of email", "Send mail...");
             }
         });
         Button homebtn = (Button) findViewById(R.id.homebtn);

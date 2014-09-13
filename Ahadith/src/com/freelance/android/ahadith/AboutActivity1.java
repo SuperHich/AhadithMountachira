@@ -680,17 +680,19 @@ public class AboutActivity1 extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(Intent.ACTION_SEND);
-				i.setType("message/rfc822");
-				i.putExtra(Intent.EXTRA_EMAIL, new String[]{"apps@dorar.net"});
-				i.putExtra(Intent.EXTRA_SUBJECT,
-						"رسالة بخصوص تطبيق أحاديث منتشرة");
-				i.putExtra(Intent.EXTRA_TEXT, "body of email");
-				try {
-					startActivity(Intent.createChooser(i, "Send mail..."));
-				} catch (android.content.ActivityNotFoundException ex) {
-
-				}
+//				Intent i = new Intent(Intent.ACTION_SEND);
+//				i.setType("message/rfc822");
+//				i.putExtra(Intent.EXTRA_EMAIL, new String[]{"apps@dorar.net"});
+//				i.putExtra(Intent.EXTRA_SUBJECT,
+//						"رسالة بخصوص تطبيق أحاديث منتشرة");
+//				i.putExtra(Intent.EXTRA_TEXT, "body of email");
+//				try {
+//					startActivity(Intent.createChooser(i, "Send mail..."));
+//				} catch (android.content.ActivityNotFoundException ex) {
+//
+//				}
+				
+				Utils.shareWithMail(AboutActivity1.this, "apps@dorar.net", "رسالة بخصوص تطبيق احاديث منتشره", " ", "Send mail...");
 
 			}
 		});
