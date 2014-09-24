@@ -285,7 +285,7 @@ public class AhadithListAdapter extends BaseAdapter {
 		holder.hadithTV.setTypeface(face);
 		holder.hadithDg.setTypeface(face);
 		holder.hadithDegTitle.setTypeface(face);
-		holder.hadithTV.setText(s);
+		holder.hadithTV.setText(Utils.cleanPonctuation(s));
 		holder.hadithDg.setText(ahdithListModel.get(position).getHadDeg());
         
         
@@ -295,7 +295,7 @@ public class AhadithListAdapter extends BaseAdapter {
         
         
         // expanding here 
-holder.readmorebtn.setOnClickListener(new View.OnClickListener() {
+		holder.readmorebtn.setOnClickListener(new View.OnClickListener() {
         	
             @Override
             public void onClick(View v) {
@@ -490,9 +490,30 @@ holder.whatappbtn.setOnClickListener(new View.OnClickListener() {
 				+ degree
 				+ "\n"
 				+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
+		
+//		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :" );
+//				
+//				
+//				waIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+//						s
+//						+ "\n"
+//						+ "الدرجة : "
+//						+ degree
+//						+ "\n"
+//						+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
+		
 		//waIntent.putExtra(android.content.Intent.EXTRA_TEXT,"wwwwwwwww");
 		con.startActivity(Intent.createChooser(waIntent,
-				"Share with what's app"));
+				"Share Application"));
+		
+//		Utils.shareWithoutMail_FB_TW(con, 
+//				" الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :\n" + title, 
+//				desc
+//				+ "\n"
+//				+ "الدرجة : "
+//				+ degree
+//				+ "\n"
+//				+ "( لتحميل التطبيق : http://dorar.net/article/1692 )", "Share Application");
 
 	}
 });
