@@ -477,30 +477,32 @@ holder.whatappbtn.setOnClickListener(new View.OnClickListener() {
 		}
 		
 				
-		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :\n" 
-		+title 
+//		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :\n" 
+//		+title 
+//		
+//				);
+//		
+//		
+//		waIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+//				desc
+//				+ "\n"
+//				+ "الدرجة : "
+//				+ degree
+//				+ "\n"
+//				+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
 		
-				);
-		
-		
-		waIntent.putExtra(android.content.Intent.EXTRA_TEXT,
-				desc
-				+ "\n"
-				+ "الدرجة : "
-				+ degree
-				+ "\n"
-				+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
-		
-//		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :" );
-//				
-//				
-//				waIntent.putExtra(android.content.Intent.EXTRA_TEXT,
-//						s
-//						+ "\n"
-//						+ "الدرجة : "
-//						+ degree
-//						+ "\n"
-//						+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
+		waIntent.putExtra(Intent.EXTRA_SUBJECT, " الدرر السنية – من تطبيق أحاديث منتشرة لا تصح : \n" );
+				
+				
+				waIntent.putExtra(android.content.Intent.EXTRA_TEXT,
+						" الدرر السنية – من تطبيق أحاديث منتشرة لا تصح :"
+						+ "\n"
+						+ s
+						+ "\n"
+						+ "الدرجة : "
+						+ degree
+						+ "\n"
+						+ "( لتحميل التطبيق : http://dorar.net/article/1692 )");
 		
 		//waIntent.putExtra(android.content.Intent.EXTRA_TEXT,"wwwwwwwww");
 		con.startActivity(Intent.createChooser(waIntent,
